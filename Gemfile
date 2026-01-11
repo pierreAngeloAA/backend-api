@@ -45,7 +45,7 @@ gem "sidekiq"
 gem "carrierwave"
 
 # JWT provides token-based authentication for secure API access
-gem 'jwt'
+gem "jwt"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -56,4 +56,7 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Testing framework for unit, service, and request specs
+  gem "rspec-rails"
 end
