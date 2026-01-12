@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_01_11_122023) do
+ActiveRecord::Schema[8.0].define(version: 2026_01_12_021337) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "customers", force: :cascade do |t|
+    t.string "document"
+    t.string "full_name"
+    t.string "email"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["document"], name: "index_customers_on_document", unique: true
+  end
 
   create_table "devices", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -21,6 +31,13 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_11_122023) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_devices_on_user_id"
+  end
+
+  create_table "revoked_tokens", force: :cascade do |t|
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["token"], name: "index_revoked_tokens_on_token"
   end
 
   create_table "users", force: :cascade do |t|

@@ -56,7 +56,7 @@ Errors are tracked per import.
 
 ## Requirements
 
-- Ruby 3.4.6
+- Ruby 3.2.4
 - Rails 8.0.4
 - PostgreSQL
 - Redis

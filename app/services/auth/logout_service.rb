@@ -1,9 +1,9 @@
 class Auth::LogoutService
-  def initialize(device)
-    @device = device
+  def initialize(token)
+    @token = token
   end
 
   def call
-    @device.update!(revoked_at: Time.current)
+    RevokedToken.create!(token: @token)
   end
 end
