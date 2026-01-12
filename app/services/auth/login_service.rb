@@ -1,14 +1,23 @@
 class Auth::LoginService
   def initialize(email, password)
-    @user = User.find_by(email:)
+    @user = User.find_by(email: email)
     @password = password
   end
 
   def call
     return nil unless @user&.authenticate(@password)
 
-    token = Auth::JwtService.encode(user_id: @user.id)
-    @user.devices.create!(jwt_token: token)
+    payload = {
+      user_id: @user.id,
+      jti: SecureRandom.uuid
+    }
+
+    token = Auth::JwtService.encode(payload)
+
+    @user.devices.where(revoked_at: nil).update_all(revoked_at: Time.current)
+
+    @user.devices.create!(jwt_token: token, revoked_at: nil)
+
     token
   end
 end
