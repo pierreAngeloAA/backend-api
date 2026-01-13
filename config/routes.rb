@@ -12,6 +12,12 @@ Rails.application.routes.draw do
       delete "/logout", to: "auth#logout"
 
       resources :customers, only: [:index, :show, :create, :update, :destroy]
+
+      resources :imports, only: [:create, :show] do
+        member do
+          get :errors
+        end
+      end
     end
   end
 end

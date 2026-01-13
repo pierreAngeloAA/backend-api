@@ -47,6 +47,9 @@ gem "carrierwave"
 # JWT provides token-based authentication for secure API access
 gem "jwt"
 
+# CSV parsing
+gem "csv", "~> 3.3"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
@@ -60,3 +63,4 @@ group :development, :test do
   # Testing framework for unit, service, and request specs
   gem "rspec-rails"
 end
+

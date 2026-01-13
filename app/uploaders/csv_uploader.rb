@@ -1,5 +1,4 @@
-class FileUploader < CarrierWave::Uploader::Base
-
+class CsvUploader < CarrierWave::Uploader::Base
   storage :file
 
   def store_dir
