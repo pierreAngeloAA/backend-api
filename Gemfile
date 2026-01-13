@@ -67,5 +67,5 @@ group :development, :test do
   gem "factory_bot_rails"
 
   # Shoulda Matchers provides RSpec-compatible one-liners to test common Rails functionality
-  gem "shoulda-matchers", "~> 5.0"
+  gem "shoulda-matchers", "~> 7.0"
 end
