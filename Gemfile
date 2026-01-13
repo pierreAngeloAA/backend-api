@@ -62,5 +62,10 @@ group :development, :test do
 
   # Testing framework for unit, service, and request specs
   gem "rspec-rails"
-end
 
+  # Factory Bot for setting up Ruby objects as test data
+  gem "factory_bot_rails"
+
+  # Shoulda Matchers provides RSpec-compatible one-liners to test common Rails functionality
+  gem "shoulda-matchers", "~> 5.0"
+end

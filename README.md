@@ -54,6 +54,14 @@ Each row in the CSV is iterated and used to create a customer record.
 Errors are tracked per import.
 
 
+1. CSV file is uploaded via POST /imports
+2. File is stored using CarrierWave
+3. A Sidekiq job is enqueued
+4. Each CSV row is processed via a service object
+5. Valid rows create or update customers
+6. Invalid rows are stored in the import error report
+
+
 ## Requirements
 
 - Ruby 3.2.4
@@ -61,10 +69,27 @@ Errors are tracked per import.
 - PostgreSQL
 - Redis
 
+## API Endpoints (Main)
+
+### Authentication
+- POST /auth/login
+- POST /auth/logout
+
+### Customers
+- GET /customers
+- POST /customers
+- PUT /customers/:id
+- DELETE /customers/:id
+
+### Imports
+- POST /imports
+- GET /imports/:id
+- GET /imports/:id/errors
+
+
 ## Setup
 
 ```bash
 bundle install
 rails db:create
 rails db:migrate
-
