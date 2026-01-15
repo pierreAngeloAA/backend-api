@@ -90,6 +90,19 @@ Errors are tracked per import.
 ## Setup
 
 ```bash
-bundle install
+# Option 1: Using Rails directly
 rails db:create
 rails db:migrate
+rails db:seed
+rails s
+
+# Option 2: Using bundle exec
+bundle exec rails db:create
+bundle exec rails db:migrate
+bundle exec rails db:seed
+bundle exec rails s
+bundle exec sidekiq
+
+### First user seed
+Email: test@example.com  
+Password: password123

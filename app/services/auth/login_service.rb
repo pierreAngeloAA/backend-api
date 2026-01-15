@@ -1,11 +1,8 @@
 class Auth::LoginService
-  def initialize(email, password)
-    @user = User.find_by(email: email)
-    @password = password
-  end
 
-  def call
-    return nil unless @user&.authenticate(@password)
+  def self.call(email, password)
+    @user = User.find_by(email: email)
+    return nil unless @user&.authenticate(password)
 
     payload = {
       user_id: @user.id,
