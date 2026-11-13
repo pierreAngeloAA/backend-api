@@ -1,5 +1,5 @@
 class Api::V1::ImportsController < ApplicationController
-  before_action :set_import, only: [:show, :errors]
+  before_action :set_import, only: [ :show, :errors ]
 
   def create
     import = Import.new(file: params[:file])
