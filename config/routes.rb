@@ -11,9 +11,9 @@ Rails.application.routes.draw do
       post "/login", to: "auth#login"
       delete "/logout", to: "auth#logout"
 
-      resources :customers, only: [:index, :show, :create, :update, :destroy]
+      resources :customers, only: [ :index, :show, :create, :update, :destroy ]
 
-      resources :imports, only: [:create, :show] do
+      resources :imports, only: [ :create, :show ] do
         member do
           get :errors
         end

@@ -1,5 +1,4 @@
 class Auth::LogoutService
-  
   def self.call(token)
     device = Device.find_by(jwt_token: token)
     return false unless device

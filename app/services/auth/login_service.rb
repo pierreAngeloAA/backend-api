@@ -1,5 +1,4 @@
 class Auth::LoginService
-
   def self.call(email, password)
     @user = User.find_by(email: email)
     return nil unless @user&.authenticate(password)

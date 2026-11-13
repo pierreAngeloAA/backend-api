@@ -1,7 +1,7 @@
 module Api
   module V1
     class CustomersController < ApplicationController
-      before_action :set_customer, only: [:show, :update, :destroy]
+      before_action :set_customer, only: [ :show, :update, :destroy ]
 
       def index
         @customers = Customer.all

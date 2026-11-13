@@ -1,12 +1,12 @@
 module Api
   module V1
     class AuthController < ApplicationController
-      skip_before_action :authenticate_request, only: [:login]
+      skip_before_action :authenticate_request, only: [ :login ]
 
       def login
         token = Auth::LoginService.call(params[:email], params[:password])
         if token
-          render json: { token: token, user: User.find_by(email: params[:email]).as_json(only: [:id, :email]) }, status: :ok
+          render json: { token: token, user: User.find_by(email: params[:email]).as_json(only: [ :id, :email ]) }, status: :ok
         else
           render json: { error: "Invalid email or password" }, status: :unauthorized
         end
