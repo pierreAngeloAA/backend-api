@@ -20,7 +20,7 @@ class Api::V1::ImportsController < ApplicationController
     if @import.error_report.present?
       send_data @import.error_report, filename: "import_#{@import.id}_errors.txt"
     else
-      render json: { message: "No errors fouwith_indexnd" }
+      render json: { message: "No errors found" }
     end
   end
 

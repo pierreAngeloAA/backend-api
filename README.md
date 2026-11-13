@@ -103,6 +103,18 @@ bundle exec rails db:seed
 bundle exec rails s
 bundle exec sidekiq
 
+### Sidekiq dashboard
+
+`/sidekiq` is protected with HTTP basic auth. Set both variables to open it; without a password it stays closed:
+
+```bash
+SIDEKIQ_WEB_USERNAME=admin SIDEKIQ_WEB_PASSWORD=change-me bundle exec rails s
+```
+
+### Tokens
+
+Login returns a JWT valid for **24 hours**. Logging in again or calling `DELETE /api/v1/logout` revokes the previous token.
+
 ### First user seed
 Email: test@example.com  
 Password: password123
