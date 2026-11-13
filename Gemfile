@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.0.3"
+gem "rails", "~> 8.1.4"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
@@ -67,5 +67,5 @@ group :development, :test do
   gem "factory_bot_rails"
 
   # Shoulda Matchers provides RSpec-compatible one-liners to test common Rails functionality
-  gem "shoulda-matchers", "~> 5.0"
+  gem "shoulda-matchers", "~> 8.0"
 end
